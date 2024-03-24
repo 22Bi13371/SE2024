@@ -10,8 +10,8 @@ import utils.AttrRef;
  */
 
 public class UndergradStudent extends Student {
-    private final double maxint = Math.pow(10, 9);
-    private final double minint = Math.pow(10, 5) - 1;
+    private final double maxid = Math.pow(10, 8);
+    private final double minid = Math.pow(10, 5);
 
     // constructor methods
     /*
@@ -43,7 +43,7 @@ public class UndergradStudent extends Student {
     *       return false
    */
   protected boolean validateID(Integer i) {
-    if (minint < i && i < maxint)
+    if (minid < i && i < maxid)
       return true;
     else
       return false;

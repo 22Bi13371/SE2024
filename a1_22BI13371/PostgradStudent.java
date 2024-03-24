@@ -23,6 +23,8 @@ import utils.AttrRef;
 public class PostgradStudent extends Student {
     private final double mingpa = 0.0;
     private final double maxgpa = 4.0;
+    private final double maxid = Math.pow(10, 9);
+    private final double minid = Math.pow(10, 8) + 1;
 
     @DomainConstraint(type="double",mutable=true, optional=false, min=0.0, max=4.0)
     private double gpa;
@@ -94,6 +96,21 @@ public class PostgradStudent extends Student {
    */
   protected boolean validate(Integer i, String n, String p, String a, Float g) {
     return validateID(i) && validateName(n) && validatePhonenumber(p) && validateAddress(a) && validateGPA(g);
+  }
+
+/**
+   * @effects
+    *   if id is valid 
+    *       return true 
+    *   else 
+    *       return false
+   */
+  @Override
+  protected boolean validateID(Integer i) {
+    if (minid < i && i < maxid)
+      return true;
+    else
+      return false;
   }
 
   /**
