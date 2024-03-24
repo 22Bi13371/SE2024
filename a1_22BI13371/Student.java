@@ -28,11 +28,11 @@ public class Student {
 
     @DomainConstraint(type="Integer",mutable=false, optional=false, min=1, max=10^9)
     private Integer id;
-    @DomainConstraint(type="String",mutable=true, optional=false, min=1, max=10^9)
+    @DomainConstraint(type="String",mutable=true, optional=false, length=50)
     private String name;
-    @DomainConstraint(type="String",mutable=true, optional=false, min=1, max=10^9)
+    @DomainConstraint(type="String",mutable=true, optional=false, length = 10)
     private String phoneNumber;
-    @DomainConstraint(type="String",mutable=true, optional=false, min=1, max=10^9)
+    @DomainConstraint(type="String",mutable=true, optional=false, length = 100)
     private String address;
 
     // constructor methods
