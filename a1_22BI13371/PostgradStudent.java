@@ -2,6 +2,8 @@ package a1_22BI13371;
 
 import utils.DomainConstraint;
 import utils.NotPossibleException;
+import utils.DOpt;
+import utils.OptType;
 import utils.AttrRef;
 
 
@@ -50,6 +52,33 @@ public class PostgradStudent extends Student {
     
 
     // methods
+
+    /**
+   * @effects return this.address
+   */
+  @DOpt(type=OptType.Observer) @AttrRef("gpa")
+  public double getGPA() {
+    return gpa;
+  }
+      
+  /**
+   * @effects
+   *  if name is valid
+   *    set this.name = name
+   *  return true
+   *     else
+   *  return false
+   */
+  @DOpt(type=OptType.Mutator) @AttrRef("gpa")
+  public boolean setName(double gpa) {
+    if (validateGPA(gpa)) {
+      this.gpa = gpa;
+      return true;
+    } else {
+      return false;
+    }
+  }
+
     @Override
     public String toString() {
         return "PostgradStudent(" + getName() + "id: " + getID() + ")";
