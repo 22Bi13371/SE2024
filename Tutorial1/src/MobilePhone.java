@@ -1,6 +1,10 @@
 package src;
 
 import utils.DomainConstraint;
+import utils.NotPossibleException;
+import utils.AttrRef;
+import utils.DOpt;
+import utils.OptType;
 
 /*
  * @overview A mobilephone will be owned by a person
@@ -34,4 +38,28 @@ public class MobilePhone {
 
     @DomainConstraint(mutable = true, optional = true)
     private boolean guaranteed;
+
+    // methods
+        // constructor methods
+    /*
+     * @effects
+     *  if n, m are valid
+     *      initialise this as MobilePhone<n, m>
+     *  else
+     *      throw NotPossibleException
+     */
+    public MobilePhone(
+        @AttrRef("manName") String n,
+        @AttrRef("model") String m) throws NotPossibleException {
+    this.manName = n;
+    this.model = m;        
+    }
+
+    // getters
+    // setters
+
+    //helper - validate
+
+    //default
+     
 }

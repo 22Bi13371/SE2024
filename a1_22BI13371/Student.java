@@ -36,12 +36,13 @@ public class Student {
     private String address;
 
     // constructor methods
-    /*
+    /*<pre>
      * @effects
      *  if i, n, p, a are valid
      *      initialise this as Student<i,n,p,a>
      *  else
      *      throw NotPossibleException
+     * </pre>
      */
     public Student(
         @AttrRef("id") Integer i,
@@ -73,45 +74,50 @@ public class Student {
   }
 
   // methods
+  // getters
   /**
-   * @effects return this.id
+   * @effects <tt> return this.id </tt>
    */
   @DOpt(type=OptType.Observer) @AttrRef("id")
   public Integer getID() {
-    return id;
+    return this.id;
   }
 
   /**
-   * @effects return this.name
+   * @effects <tt> return this.name </tt>
    */
   @DOpt(type=OptType.Observer) @AttrRef("name")
   public String getName() {
-    return name;
+    return this.name;
   }
 
   /**
-   * @effects return this.phoneNumber
+   * @effects <tt> return this.phoneNumber </tt>
    */
   @DOpt(type=OptType.Observer) @AttrRef("phoneNumber")
   public String getPhoneNumber() {
-    return phoneNumber;
+    return this.phoneNumber;
   }
 
   /**
-   * @effects return this.address
+   * @effects <tt> return this.address </tt>
    */
   @DOpt(type=OptType.Observer) @AttrRef("address")
   public String getAddress() {
-    return address;
+    return this.address;
   }
-      
+  
+  // setters
   /**
-   * @effects
+   * @modifies this.name
+   * 
+   * @effects <pre>
    *  if name is valid
    *    set this.name = name
    *  return true
    *     else
    *  return false
+   * </pre.
    */
   @DOpt(type=OptType.Mutator) @AttrRef("name")
   public boolean setName(String name) {
@@ -123,16 +129,19 @@ public class Student {
     }
   }
   /**
-   * @effects
+   * @modifies this.phoneNumber
+   * 
+   * @effects <pre>
    *  if phoneNumber is valid
    *    set this.phoneNumber = phoneNumber
    *  return true
    *     else
    *  return false
+   * </pre>
    */
   @DOpt(type=OptType.Mutator) @AttrRef("phoneNumber")
   public boolean setPhoneNumber(String phoneNumber) {
-    if (validateName(name)) {
+    if (validatePhonenumber(phoneNumber)) {
       this.phoneNumber = phoneNumber;
       return true;
     } else {
@@ -140,16 +149,19 @@ public class Student {
     }
   }
   /**
-   * @effects
+   * @modifies this.address
+   * 
+   * @effects <pre>
    *  if address is valid
    *    set this.address = address
    *  return true
    *     else
    *  return false
+   * </pre>
    */
   @DOpt(type=OptType.Mutator) @AttrRef("address")
   public boolean setAddress(String address) {
-    if (validateName(name)) {
+    if (validateAddress(address)) {
       this.address = address;
       return true;
     } else {
@@ -157,29 +169,32 @@ public class Student {
     }
   }
 
+  // default
   @Override
   public String toString() {
     return "Student(" + name + "id: " + id + ")";
   }
   
-  // validation methods
-  /*
-   * @effects
+  // validation methods - helper
+  /**
+   * @effects <pre>
    *  if <i, n, p, a> is a valid tuple
    *    return true
    *  else
    *    return false
+   * </pre>
    */
   protected boolean validate(Integer i, String n, String p, String a) {
     return validateID(i) && validateName(n) && validatePhonenumber(p) && validateAddress(a);
   }
 
   /**
-   * @effects
-    *   if i is valid 
-    *       return true 
-    *   else 
-    *       return false
+   * @effects <pre>
+   *  if i is valid
+   *    return true
+   *  else
+   *    return false
+   * </pre>
    */
   protected boolean validateID(Integer i) {
     if (0 < i && i < maxint)
@@ -188,12 +203,13 @@ public class Student {
       return false;
   }
 
-    /**
-   * @effects
-    *   if n is valid 
-    *       return true 
-    *   else 
-    *       return false
+  /**
+   * @effects <pre>
+   *  if n is valid
+   *    return true
+   *  else
+   *    return false
+   * </pre>
    */
   protected boolean validateName(String n) {
     if (n == null | n.length() > 50)
@@ -202,12 +218,13 @@ public class Student {
       return true;
   }
 
-    /**
-   * @effects
-    *   if p is valid 
-    *       return true 
-    *   else 
-    *       return false
+  /**
+   * @effects <pre>
+   *  if p is valid
+   *    return true
+   *  else
+   *    return false
+   * </pre>
    */
   protected boolean validatePhonenumber(String p) {
     if (p == null | p.length() > 10)
@@ -216,12 +233,13 @@ public class Student {
       return true;
   }
 
-    /**
-   * @effects
-    *   if a is valid 
-    *       return true 
-    *   else 
-    *       return false
+  /**
+   * @effects <pre>
+   *  if a is valid
+   *    return true
+   *  else
+   *    return false
+   * </pre>
    */
   protected boolean validateAddress(String a) {
     if (a == null | a.length() > 100)
