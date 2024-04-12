@@ -1,4 +1,8 @@
-package a1_22BI13371;
+
+
+import a1_22BI13371.PostgradStudent;
+import a1_22BI13371.Student;
+import a1_22BI13371.UndergradStudent;
 
 public class Program {
     public static void main(String[] args) {
@@ -11,7 +15,7 @@ public class Program {
         System.out.println(postgradstudent);
 
         System.out.println(student.getAddress());
-        student.setAddress("null");
+        student.setAddress(null);
         System.out.println(student.getAddress());
     }
 }
