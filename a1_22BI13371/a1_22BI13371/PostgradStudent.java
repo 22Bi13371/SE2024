@@ -7,8 +7,8 @@ import utils.OptType;
 import utils.AttrRef;
 
 
-/*
- * @overview Student will attend a university
+/**
+ * @overview PostgradStudent is a student that will attend a university at the postgraduate level
  * @attributes
  *  A_Student
  *  gpa     Float   double
@@ -23,8 +23,8 @@ import utils.AttrRef;
 public class PostgradStudent extends Student {
     private final double mingpa = 0.0;
     private final double maxgpa = 4.0;
-    private final double maxid = Math.pow(10, 9);
-    private final double minid = Math.pow(10, 8) + 1;
+    private final int maxid = 1000000000;
+    private final int minid = 100000000 + 1;
 
     @DomainConstraint(type="double",mutable=true, optional=false, min=0.0, max=4.0)
     private double gpa;
@@ -37,7 +37,7 @@ public class PostgradStudent extends Student {
      *      throw NotPossibleException
      */
     public PostgradStudent(
-        @AttrRef("id") Integer i,
+        @AttrRef("id") int i,
         @AttrRef("name") String n,
         @AttrRef("phoneNumber") String p,
         @AttrRef("address") String a,
@@ -54,25 +54,26 @@ public class PostgradStudent extends Student {
     
 
     // methods
-
+    // Getters
     /**
-   * @effects return this.address
-   */
+    * @effects return this.address
+    */
   @DOpt(type=OptType.Observer) @AttrRef("gpa")
   public double getGPA() {
-    return gpa;
+    return this.gpa;
   }
       
+  // Setters
   /**
    * @effects
-   *  if name is valid
-   *    set this.name = name
-   *  return true
-   *     else
-   *  return false
+   *  if gpa is valid
+   *    set this.gpa = gpa
+   *    return true
+   *  else
+   *    return false
    */
   @DOpt(type=OptType.Mutator) @AttrRef("gpa")
-  public boolean setName(double gpa) {
+  public boolean setGpa(double gpa) {
     if (validateGPA(gpa)) {
       this.gpa = gpa;
       return true;
@@ -83,7 +84,7 @@ public class PostgradStudent extends Student {
 
     @Override
     public String toString() {
-        return "PostgradStudent(" + getName() + "id: " + getID() + ")";
+        return "PostgradStudent(" + getName() + ", id: " + getID() + ")";
     }
 
     // validation methods
@@ -94,7 +95,7 @@ public class PostgradStudent extends Student {
    *  else
    *    return false
    */
-  protected boolean validate(Integer i, String n, String p, String a, Float g) {
+  protected boolean repOK(Integer i, String n, String p, String a, Float g) {
     return validateID(i) && validateName(n) && validatePhonenumber(p) && validateAddress(a) && validateGPA(g);
   }
 
@@ -106,11 +107,11 @@ public class PostgradStudent extends Student {
     *       return false
    */
   @Override
-  protected boolean validateID(Integer i) {
-    if (minid < i && i < maxid)
-      return true;
-    else
+  protected boolean validateID(int i) {
+    if (minid > i || i > maxid)
       return false;
+    else
+      return true;
   }
 
   /**
@@ -121,9 +122,9 @@ public class PostgradStudent extends Student {
     *       return false
    */
   protected boolean validateGPA(double g) {
-    if (mingpa < g && g < maxgpa)
-      return true;
-    else
+    if (mingpa > g || g > maxgpa)
       return false;
+    else
+      return true;
   }
 }

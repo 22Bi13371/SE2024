@@ -6,13 +6,13 @@ import utils.AttrRef;
 import utils.DOpt;
 import utils.OptType;
 
-/*
+/** <pre>
  * @overview Student will attend a university
  * @attributes
- * 	id				Integer 
- * 	name			String
+ * 	id			    	Integer   int
+ * 	name			    String
  * 	phoneNumber		String
- * 	address			String
+ * 	address			  String
  * @object 
  * 	a typical Student is s=<i, n, p, a>,
  *  	where id(i), name(n), phoneNumber(p), address(a)
@@ -21,22 +21,24 @@ import utils.OptType;
  * 	mutable(name)=true /\ optional(name)=false /\ min(length)=50
  * 	mutable(phoneNumber)=true /\ optional(phoneNumber)=false /\ length(phoneNumber)=10
  * 	mutable(address)=true /\ optional(address)=false /\ length(address)=100
+ *  </pre>
  */
 
-public class Student {
-  private final double maxint = Math.pow(10, 9);
+public class Student implements Comparable<Student> {
+  private final long maxint = (long)Math.pow(10, 9);
 
-    @DomainConstraint(type="Integer",mutable=false, optional=false, min=1, max=10^9)
-    private Integer id;
-    @DomainConstraint(type="String",mutable=true, optional=false, length=50)
+    @DomainConstraint(type="int",mutable=false, optional=false, min = 1, max = 10^9)
+    private int id;
+    @DomainConstraint(type="String",mutable=true, optional=false, length = 50)
     private String name;
     @DomainConstraint(type="String",mutable=true, optional=false, length = 10)
     private String phoneNumber;
     @DomainConstraint(type="String",mutable=true, optional=false, length = 100)
     private String address;
 
-    // constructor methods
-    /*<pre>
+    // constructor method
+    /**<pre>
+     * @modifies this.id, this.name, this.phoneNumber, this.address
      * @effects
      *  if i, n, p, a are valid
      *      initialise this as Student<i,n,p,a>
@@ -45,7 +47,7 @@ public class Student {
      * </pre>
      */
     public Student(
-        @AttrRef("id") Integer i,
+        @AttrRef("id") int i,
         @AttrRef("name") String n,
         @AttrRef("phoneNumber") String p,
         @AttrRef("address") String a) throws NotPossibleException {
@@ -79,7 +81,7 @@ public class Student {
    * @effects <tt> return this.id </tt>
    */
   @DOpt(type=OptType.Observer) @AttrRef("id")
-  public Integer getID() {
+  public int getID() {
     return this.id;
   }
 
@@ -172,7 +174,12 @@ public class Student {
   // default
   @Override
   public String toString() {
-    return "Student(" + name + "id: " + id + ")";
+    return "Student(" + name + ", id: " + id + ")";
+  }
+
+  @Override
+  public int compareTo(Student other) {
+    return this.name.compareTo(other.name);
   }
   
   // validation methods - helper
@@ -184,7 +191,7 @@ public class Student {
    *    return false
    * </pre>
    */
-  protected boolean validate(Integer i, String n, String p, String a) {
+  protected boolean repOK(int i, String n, String p, String a) {
     return validateID(i) && validateName(n) && validatePhonenumber(p) && validateAddress(a);
   }
 
@@ -196,11 +203,11 @@ public class Student {
    *    return false
    * </pre>
    */
-  protected boolean validateID(Integer i) {
-    if (0 < i && i < maxint)
-      return true;
-    else
+  protected boolean validateID(int i) {
+    if (0 > i || i > maxint){
       return false;
+    }
+      return true;
   }
 
   /**
@@ -212,7 +219,7 @@ public class Student {
    * </pre>
    */
   protected boolean validateName(String n) {
-    if (n == null | n.length() > 50)
+    if (n == null || n.length() > 50)
       return false;
     else
       return true;
@@ -227,7 +234,7 @@ public class Student {
    * </pre>
    */
   protected boolean validatePhonenumber(String p) {
-    if (p == null | p.length() > 10)
+    if (p == null || p.length() > 10)
       return false;
     else
       return true;
@@ -242,7 +249,7 @@ public class Student {
    * </pre>
    */
   protected boolean validateAddress(String a) {
-    if (a == null | a.length() > 100)
+    if (a == null || a.length() > 100)
       return false;
     else
       return true;
