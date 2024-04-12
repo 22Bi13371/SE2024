@@ -172,11 +172,21 @@ public class Student implements Comparable<Student> {
   }
 
   // default
+  /**
+   * @effects
+   * return this.name, this.id
+   */
   @Override
   public String toString() {
     return "Student(" + name + ", id: " + id + ")";
   }
 
+  /**
+   * @requires Student other
+   * 
+   * @effects
+   * return this.name.compareTo)other.name
+   */
   @Override
   public int compareTo(Student other) {
     return this.name.compareTo(other.name);

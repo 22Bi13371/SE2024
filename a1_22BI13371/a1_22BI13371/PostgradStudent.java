@@ -29,10 +29,11 @@ public class PostgradStudent extends Student {
     @DomainConstraint(type="double",mutable=true, optional=false, min=0.0, max=4.0)
     private double gpa;
     // constructor methods
-    /*
+    /**
+     * @modifies this.id, this.name, this.phoneNumber, this.address
      * @effects
-     *  if i, n, p, a, g are valid
-     *      initialise this as PostgradStudent<i,n,p,a,g>
+     *  if i, n, p, a are valid
+     *      initialise this as PostgradStudent<i,n,p,a>
      *  else
      *      throw NotPossibleException
      */
@@ -40,15 +41,8 @@ public class PostgradStudent extends Student {
         @AttrRef("id") int i,
         @AttrRef("name") String n,
         @AttrRef("phoneNumber") String p,
-        @AttrRef("address") String a,
-        @AttrRef("gpa") double g) throws NotPossibleException {
+        @AttrRef("address") String a) throws NotPossibleException {
         super(i, n, p, a);
-        if(!validateGPA(g)) {
-            throw new NotPossibleException("PostgradStudent.init: invalid gpa: " + g);
-          }
-        
-        // all are valid
-        this.gpa = g;
     }
 
     
@@ -56,7 +50,7 @@ public class PostgradStudent extends Student {
     // methods
     // Getters
     /**
-    * @effects return this.address
+    * @effects return this.gpa
     */
   @DOpt(type=OptType.Observer) @AttrRef("gpa")
   public double getGPA() {
@@ -65,6 +59,8 @@ public class PostgradStudent extends Student {
       
   // Setters
   /**
+   * @modifies this.gpa
+   * 
    * @effects
    *  if gpa is valid
    *    set this.gpa = gpa
