@@ -30,10 +30,10 @@ public class PostgradStudent extends Student {
     private double gpa;
     // constructor methods
     /**
-     * @modifies this.id, this.name, this.phoneNumber, this.address
+     * @modifies this.id, this.name, this.phoneNumber, this.address, this.gpa
      * @effects
-     *  if i, n, p, a are valid
-     *      initialise this as PostgradStudent<i,n,p,a>
+     *  if i, n, p, a, g are valid
+     *      initialise this as PostgradStudent<i,n,p,a,g>
      *  else
      *      throw NotPossibleException
      */
@@ -41,8 +41,15 @@ public class PostgradStudent extends Student {
         @AttrRef("id") int i,
         @AttrRef("name") String n,
         @AttrRef("phoneNumber") String p,
-        @AttrRef("address") String a) throws NotPossibleException {
+        @AttrRef("address") String a,
+        @AttrRef("gpa") double g) throws NotPossibleException {
         super(i, n, p, a);
+        if(!validateGPA(g)) {
+          throw new NotPossibleException("Student.init: invalid gpa: " + g);
+        }
+
+        // all are true
+        this.gpa = g;
     }
 
     

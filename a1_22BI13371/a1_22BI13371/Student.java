@@ -60,11 +60,11 @@ public class Student implements Comparable<Student> {
       }
 
       if(!validatePhonenumber(p)) {
-        throw new NotPossibleException("Student.init: invalid id: " + p);
+        throw new NotPossibleException("Student.init: invalid Phonenumber: " + p);
       }
 
       if(!validateAddress(a)) {
-        throw new NotPossibleException("Student.init: invalid id: " + a);
+        throw new NotPossibleException("Student.init: invalid Address: " + a);
       }
       
       // all are valid
