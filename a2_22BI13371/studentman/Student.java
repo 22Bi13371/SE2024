@@ -2,6 +2,9 @@ package studentman;
 
 import utils.DomainConstraint;
 import utils.NotPossibleException;
+
+import javax.swing.text.Document;
+
 import utils.AttrRef;
 import utils.DOpt;
 import utils.OptType;
@@ -24,7 +27,7 @@ import utils.OptType;
  *  </pre>
  */
 
-public class Student implements Comparable<Student> {
+public class Student implements Comparable<Student>, studentman.Document {
   private final long maxint = (long)Math.pow(10, 9);
 
     @DomainConstraint(type="int",mutable=false, optional=false, min = 1, max = 10^9)
@@ -179,6 +182,11 @@ public class Student implements Comparable<Student> {
   @Override
   public String toString() {
     return "Student(" + name + ", id: " + id + ")";
+  }
+
+  @Override
+  public String toHtmlDoc() {
+    return "<html>\n" + "<head><title>Student:" + getID() + "-" + getName() + "</title></head>\n" + "<body>\n" + getID() + " " + getName() + " " + getPhoneNumber() + " " + getAddress() + "\n</body></html>";
   }
 
   /**

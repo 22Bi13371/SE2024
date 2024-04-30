@@ -50,9 +50,23 @@ public class UndergradStudent extends Student {
       
   }
 
+  // default
+  /**
+   * @effects
+   * return this.name, this.id
+   */
   @Override
   public String toString() {
       return "UndergradStudent(" + getName() + ", id: " + getID() + ")";
+  }
+
+  /**
+   * @effects
+   * return a HTML document
+   */
+  @Override
+  public String toHtmlDoc() {
+    return "<html>\n" + "<head><title>UndergradStudent:" + getID() + "-" + getName() + "</title></head>\n" + "<body>\n" + getID() + " " + getName() + " " + getPhoneNumber() + " " + getAddress() + "\n</body></html>";
   }
   
   // helper

@@ -85,12 +85,26 @@ public class PostgradStudent extends Student {
     }
   }
 
-    @Override
-    public String toString() {
-        return "PostgradStudent(" + getName() + ", id: " + getID() + ")";
-    }
+  // default
+  /**
+   * @effects
+   * return this.name, this.id
+   */
+  @Override
+  public String toString() {
+      return "PostgradStudent(" + getName() + ", id: " + getID() + ")";
+  }
 
-    // validation methods
+  /**
+   * @effects
+   * return a HTML document
+   */
+  @Override
+  public String toHtmlDoc() {
+    return "<html>\n" + "<head><title>PostgradStudent:" + getID() + "-" + getName() + "</title></head>\n" + "<body>\n" + getID() + " " + getName() + " " + getPhoneNumber() + " " + getAddress() + " " + getGpa() + "\n</body></html>";
+  }
+
+  // validation methods
   /*
    * @effects
    *  if <i, n, p, a> is a valid tuple
