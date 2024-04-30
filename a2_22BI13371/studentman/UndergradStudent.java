@@ -1,4 +1,4 @@
-package a1_22BI13371;
+package studentman;
 
 import utils.NotPossibleException;
 import utils.AttrRef;

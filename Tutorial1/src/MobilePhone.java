@@ -3,8 +3,7 @@ package src;
 import utils.DomainConstraint;
 import utils.NotPossibleException;
 import utils.AttrRef;
-import utils.DOpt;
-import utils.OptType;
+
 
 /*
  * @overview A mobilephone will be owned by a person
