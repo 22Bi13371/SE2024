@@ -220,13 +220,21 @@ public class Query {
   }
 
   /**
+   * @modifies this.it
    * @effects
-   *  if there are query matches, returns <code>Iterator match</code> else return null.
+   *  if there are query matches, returns <code>Iterator it</code> else return <code>null</code>.
    * @return
+   *  null if matches is empty,  Iterator it if matches is not empty
    */
-  // public Iterator matchIterator() {
-  //   return this.matches;
-  // }
+  public Iterator matchIterator() {
+    if (matches.isEmpty()){
+      return null;
+    }
+    else {
+      Iterator it = this.matches.iterator();
+      return it;
+    }
+  }
   
   /**
    * A method to return keywords and matches of <code>this</code> (if any) as string.
