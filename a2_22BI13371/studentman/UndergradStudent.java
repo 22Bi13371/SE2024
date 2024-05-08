@@ -3,14 +3,6 @@ package studentman;
 import utils.NotPossibleException;
 import utils.AttrRef;
 
-/**
- * @overview UndergradStudent is a Student that is studying a bachelor program
- * 
- * @abstract_properties
- * 	P_Student
- * 
- */
-
  /**
  * @overview UndergradStudent is a student that will attend a university at the undergraduate level
  * @attributes

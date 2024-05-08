@@ -218,6 +218,15 @@ public class Query {
       throw new IndexOutOfBoundsException(
           "Query.fetch: document index is invalid " + i);
   }
+
+  /**
+   * @effects
+   *  if there are query matches, returns <code>Iterator match</code> else return null.
+   * @return
+   */
+  // public Iterator matchIterator() {
+  //   return this.matches;
+  // }
   
   /**
    * A method to return keywords and matches of <code>this</code> (if any) as string.

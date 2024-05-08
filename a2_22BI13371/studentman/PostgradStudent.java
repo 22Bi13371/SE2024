@@ -6,7 +6,6 @@ import utils.DOpt;
 import utils.OptType;
 import utils.AttrRef;
 
-
 /**
  * @overview PostgradStudent is a student that will attend a university at the postgraduate level
  * @attributes
@@ -44,7 +43,7 @@ public class PostgradStudent extends Student {
         @AttrRef("address") String a,
         @AttrRef("gpa") double g) throws NotPossibleException {
         super(i, n, p, a);
-        if(!validateGPA(g)) {
+        if(!validateGpa(g)) {
           throw new NotPossibleException("Student.init: invalid gpa: " + g);
         }
 
@@ -77,7 +76,7 @@ public class PostgradStudent extends Student {
    */
   @DOpt(type=OptType.Mutator) @AttrRef("gpa")
   public boolean setGpa(double g) {
-    if (validateGPA(g)) {
+    if (validateGpa(g)) {
       this.gpa = g;
       return true;
     } else {
@@ -113,7 +112,7 @@ public class PostgradStudent extends Student {
    *    return false
    */
   protected boolean repOK(Integer i, String n, String p, String a, double g) {
-    if (validateID(i) && validateName(n) && validatePhonenumber(p) && validateAddress(a) && validateGPA(g)) {
+    if (validateID(i) && validateName(n) && validatePhonenumber(p) && validateAddress(a) && validateGpa(g)) {
       return true;
     }
     else {
@@ -143,7 +142,7 @@ public class PostgradStudent extends Student {
     *   else 
     *       return false
    */
-  protected boolean validateGPA(double g) {
+  protected boolean validateGpa(double g) {
     if (mingpa > g || g > maxgpa)
       return false;
     else

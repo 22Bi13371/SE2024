@@ -3,8 +3,6 @@ package studentman;
 import utils.DomainConstraint;
 import utils.NotPossibleException;
 
-import javax.swing.text.Document;
-
 import utils.AttrRef;
 import utils.DOpt;
 import utils.OptType;
@@ -119,9 +117,9 @@ public class Student implements Comparable<Student>, studentman.Document {
    * @effects <pre>
    *  if name is valid
    *    set this.name = name
-   *  return true
-   *     else
-   *  return false
+   *    return true
+   *  else
+   *    return false
    * </pre.
    */
   @DOpt(type=OptType.Mutator) @AttrRef("name")
