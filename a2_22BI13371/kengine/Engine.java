@@ -187,4 +187,32 @@ public class Engine {
   public String getWordTableAsString() {
     return wt.toString();
   }
+
+  /**
+   * @param d a document to add
+   * @effects
+   * if d is null
+   * throws NullPointerException
+   * else
+   * add d to this.tt and this.wt using their respective methods.
+   * If this.q is not null
+   * update this.q to contain any new matching documents.
+   * Return this.q
+   * @return this.q
+   */
+  public Query addDoc(Doc d) throws NullPointerException {
+    Hashtable h;
+    if (d == null) {
+      throw new NullPointerException("The given Document is empty");
+    }
+    else {
+      this.tt.addDoc(d);
+      h = this.wt.addDoc(d);
+
+      if (this.q != null) {
+        this.q.addDoc(d, h);
+      }
+      return this.q;
+    }
+  }
 }
