@@ -364,7 +364,11 @@ public class ProgStudentMan {
       return "empty";
     }
     else {
-      return 
+      StringBuilder result = new StringBuilder();
+      for (Object obj : this.objects) {
+        result.append(obj.toString()).append("\n");
+      }
+      return result.toString().trim();
     }
   }
 
@@ -376,7 +380,12 @@ public class ProgStudentMan {
    *    return false
    */
   public boolean isEmpty() {
-
+    if (this.objects.isEmpty()) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
   
   /**
