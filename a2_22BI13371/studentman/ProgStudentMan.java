@@ -468,11 +468,24 @@ public class ProgStudentMan {
    */
   public Query search(String[] words) throws NotPossibleException {
     Query q = new Query();
-    try {
-      q = engine.queryFirst(words[0]);
+    if (words != null && words.length > 0) {
+      boolean isFirstElement = true;
+      for (String word : words) {
+        if (word.isEmpty()) {
+          break;
+        }
+        else if (isFirstElement) {
+          q = engine.queryFirst(word);
+          isFirstElement = false;
+        }
+        else {
+          q = engine.queryMore(word);
+        }
+
+      }
     }
-    catch (Exception e) {
-      System.err.println("Error: " + e.getMessage());
+    else {
+      throw new NotPossibleException("No student found");
     }
     return q;
   }
