@@ -8,12 +8,14 @@ import utils.DOpt;
 import utils.OptType;
 
 /** <pre>
- * @overview Student will attend a university
- * @attributes
+ * @overview Student will attend a university 
+ *  </pre>
+ *  <pre>
+ *  @attributes 
  * 	id			    	Integer   int
  * 	name			    String
  * 	phoneNumber		String
- * 	address			  String
+ * 	address			  String  </pre>
  * @object 
  * 	a typical Student is s=<i, n, p, a>,
  *  	where id(i), name(n), phoneNumber(p), address(a)
@@ -22,7 +24,7 @@ import utils.OptType;
  * 	mutable(name)=true /\ optional(name)=false /\ min(length)=50
  * 	mutable(phoneNumber)=true /\ optional(phoneNumber)=false /\ length(phoneNumber)=10
  * 	mutable(address)=true /\ optional(address)=false /\ length(address)=100
- *  </pre>
+ *  
  */
 
 public class Student implements Comparable<Student>, studentman.Document {

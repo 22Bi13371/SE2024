@@ -398,7 +398,13 @@ public class ProgStudentMan {
    *    throws NotPossibleException 
    */
   public Student createStudent(Object[] data) {
-    
+    try {
+      Student student = new Student(Integer.parseInt(data[0].toString()), data[1].toString(), data[2].toString(), data[3].toString());
+      return student;
+    }
+    catch(Exception e) {
+      throw e;
+    }
   }
   
   /**
@@ -410,7 +416,15 @@ public class ProgStudentMan {
    *  else
    *    throws NotPossibleException 
    */
-  public UndergradStudent createUndergradStudent(Object[] data) throws NotPossibleException
+  public UndergradStudent createUndergradStudent(Object[] data) throws NotPossibleException {
+    try {
+      UndergradStudent undergradstudent = new UndergradStudent(Integer.parseInt(data[0].toString()), data[1].toString(), data[2].toString(), data[3].toString());
+      return undergradstudent;
+    }
+    catch(Exception e) {
+      throw e;
+    }
+  }
   
   /**
    * @requires 
@@ -421,14 +435,27 @@ public class ProgStudentMan {
    *  else
    *    throws NotPossibleException 
    */
-  public PostgradStudent createPostgradStudent(Object[] data) throws NotPossibleException
+  public PostgradStudent createPostgradStudent(Object[] data) throws NotPossibleException {
+    {
+      try {
+        PostgradStudent postgradstudent = new PostgradStudent(Integer.parseInt(data[0].toString()), data[1].toString(), data[2].toString(), data[3].toString(), Float.parseFloat(data[4].toString()));
+        return postgradstudent;
+      }
+      catch(Exception e) {
+        throw e;
+      }
+    }
+  }
   
   /**
    * @effects 
    *   add c to this.objects and 
    *   add to this.engine a Doc object created from c.toHtmlDoc
    */
-  public void addStudent(Student c)
+  public void addStudent(Student c) {
+    this.objects.add(c);
+    this.engine.addDoc(new Doc(c.toHtmlDoc()));
+  }
   
   /**
    * @requires words != null /\ words.length > 0
@@ -439,6 +466,8 @@ public class ProgStudentMan {
    *   If fails to execute query using words
    *     throws NotPossibleException
    */
-  public Query search(String[] words) throws NotPossibleException
+  public Query search(String[] words) throws NotPossibleException {
+    
+  }
 }
 
