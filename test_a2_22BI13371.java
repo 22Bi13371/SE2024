@@ -1,22 +1,25 @@
 
+import kengine.*;
+import studentman.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import studentman.PostgradStudent;
-import studentman.Student;
-import studentman.UndergradStudent;
+// import studentman.PostgradStudent;
+// import studentman.ProgStudentMan;
+// import studentman.Student;
+// import studentman.UndergradStudent;
 
 
 
 public class test_a2_22BI13371 {
     public static void main(String[] args) {
-        Student student = new Student((int)1000, "student a", "1234 a", "somewhere a");
-        Student student2 = new Student((int)1000, "student b", "1234 b ", "somewhere b");
-        Student student3= new Student((int)1000, "student c", "1234 c", "somewhere c");
-        UndergradStudent undergradstudent = new UndergradStudent((int)Math.pow(10,6), "undergrad student", "123456", "somewhere 2");
-        PostgradStudent postgradstudent = new PostgradStudent((int)Math.pow(10, 8)+100, "postgrad student", "1234567", "somewhere 3", 2);
+        // Student student = new Student((int)1000, "student a", "1234 a", "somewhere a");
+        // Student student2 = new Student((int)1000, "student b", "1234 b ", "somewhere b");
+        // Student student3= new Student((int)1000, "student c", "1234 c", "somewhere c");
+        // UndergradStudent undergradstudent = new UndergradStudent((int)Math.pow(10,6), "undergrad student", "123456", "somewhere 2");
+        // PostgradStudent postgradstudent = new PostgradStudent((int)Math.pow(10, 8)+100, "postgrad student", "1234567", "somewhere 3", 2);
 
         // System.out.println(student.getName());
         // student.setName( null);
@@ -64,7 +67,7 @@ public class test_a2_22BI13371 {
 
         // System.out.println(student.toHtmlDoc());
         // System.out.println(undergradstudent.toHtmlDoc());
-        System.out.println(postgradstudent.toHtmlDoc());
+        // System.out.println(postgradstudent.toHtmlDoc());
 
         // System.out.println(student.getAddress());
         // student.setAddress(null);
@@ -78,5 +81,20 @@ public class test_a2_22BI13371 {
         // System.out.println(students);
         // Collections.sort(students);
         // System.out.println(students);
+
+        // 1. Initialize an Engine
+        // Engine eng = new Engine();
+        ProgStudentMan progStudentMan = new ProgStudentMan();
+
+        // 2. Initialize the document collection of the engine
+        progStudentMan.main(args);
+        
+
+
+        // 3. Search for documents using a queryu that contains one keyword
+
+
+        // 4. refine search query by incrementally add more keywords
+        
     }
 }

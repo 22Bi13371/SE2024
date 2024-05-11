@@ -467,7 +467,13 @@ public class ProgStudentMan {
    *     throws NotPossibleException
    */
   public Query search(String[] words) throws NotPossibleException {
-    
+    Query q = new Query();
+    try {
+      q = engine.queryFirst(words[0]);
+    }
+    catch (Exception e) {
+      System.err.println("Error: " + e.getMessage());
+    }
+    return q;
   }
 }
-
