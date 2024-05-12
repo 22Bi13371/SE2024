@@ -184,6 +184,10 @@ public class Student implements Comparable<Student>, studentman.Document {
     return "Student(" + name + ", id: " + id + ")";
   }
 
+  /**
+   * 
+   * @return <ore> returns htmldoc</pre>
+   */
   @Override
   public String toHtmlDoc() {
     return "<html>\n" + "<head><title>Student:" + getID() + "-" + getName() + "</title></head>\n" + "<body>\n" + getID() + " " + getName() + " " + getPhoneNumber() + " " + getAddress() + "\n</body></html>";
