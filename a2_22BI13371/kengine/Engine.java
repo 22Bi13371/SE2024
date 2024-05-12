@@ -190,14 +190,15 @@ public class Engine {
 
   /**
    * @param d a document to add
-   * @effects
+   * @effects <pre>
    * if d is null
-   * throws NullPointerException
+   *  throws NullPointerException
    * else
-   * add d to this.tt and this.wt using their respective methods.
-   * If this.q is not null
-   * update this.q to contain any new matching documents.
-   * Return this.q
+   *  add d to this.tt and this.wt using their respective methods.
+   *  If this.q is not null
+   *    update this.q to contain any new matching documents.
+   *  Return this.q
+   * </pre>
    * @return this.q
    */
   public Query addDoc(Doc d) throws NullPointerException {
