@@ -1,4 +1,3 @@
-
 import kengine.*;
 import studentman.*;
 
@@ -86,9 +85,20 @@ public class test_a2_22BI13371 {
         // Engine eng = new Engine();
         ProgStudentMan progStudentMan = new ProgStudentMan();
 
-        // 2. Initialize the document collection of the engine
+        // // 2. Initialize the document collection of the engine
         progStudentMan.main(args);
-        
+
+        System.out.println(progStudentMan.toString());
+
+
+        // eng.addDoc(new Doc(student.toHtmlDoc()));
+        // eng.addDoc(new Doc(student2.toHtmlDoc()));
+        // eng.addDoc(new Doc(student3.toHtmlDoc()));
+        // eng.addDoc(new Doc(undergradstudent.toHtmlDoc()));
+        // eng.addDoc(new Doc(postgradstudent.toHtmlDoc()));
+
+        // System.out.println(eng.toString());
+       
 
 
         // 3. Search for documents using a queryu that contains one keyword
