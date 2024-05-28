@@ -34,6 +34,10 @@ public enum OptType {
   /**a specialised type of mutator, which is used to annotate an operation of a collection class
    * that <b>removes</b> an element from the collection*/
   MutatorRemove,
+  /**equals() method */
+  DefaultEquals, 
+  /**Not yet classified*/
+  Other, 
   ;
   
   /**
@@ -80,5 +84,13 @@ public enum OptType {
    */
   public boolean isHelper() {
     return this.equals(Helper);
+  }
+
+  /**
+   * @effects 
+   * is this {@link #Other}?
+   */
+  public boolean isOther() {
+    return this.equals(Other);
   }
 }

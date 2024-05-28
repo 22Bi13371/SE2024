@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-// import studentman.PostgradStudent;
-// import studentman.ProgStudentMan;
-// import studentman.Student;
-// import studentman.UndergradStudent;
+import studentman.PostgradStudent;
+import studentman.ProgStudentMan;
+import studentman.Student;
+import studentman.UndergradStudent;
 
 
 
@@ -82,13 +82,13 @@ public class test_a2_22BI13371 {
         // System.out.println(students);
 
         // 1. Initialize an Engine
-        // Engine eng = new Engine();
+        Engine eng = new Engine();
         ProgStudentMan progStudentMan = new ProgStudentMan();
 
         // // 2. Initialize the document collection of the engine
         progStudentMan.main(args);
 
-        System.out.println(progStudentMan.toString());
+        // System.out.println(progStudentMan.toString());
 
 
         // eng.addDoc(new Doc(student.toHtmlDoc()));

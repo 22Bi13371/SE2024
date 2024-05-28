@@ -1,0 +1,25 @@
+In linguistics, a stem is a part of a word. The term is used with slightly different meanings.
+
+In one usage, a stem is a form to which affixes can be attached.[1] 
+Thus, in this usage, the English word friendships contains the stem friend, 
+to which the derivational suffix -ship is attached to form a new stem friendship, 
+to which the inflectional suffix -s is attached. 
+
+In a variant of this usage, the root of the word (in the example, friend) is not counted as a stem.
+In a slightly different usage, which is adopted in the remainder of this article, a word has a single stem, 
+namely the part of the word that is common to all its inflected variants.[2] 
+Thus, in this usage, all derivational affixes are part of the stem. 
+For example, the stem of friendships is friendship, to which the inflectional suffix -s is attached.
+
+Stems may be roots, e.g. run, or they may be morphologically complex, as in compound words 
+(cf. the compound nouns meat ball or bottle opener) or words with derivational morphemes 
+(cf. the derived verbs black-en or standard-ize). 
+Thus, the stem of the complex English noun photographer is photo·graph·er, but not photo. 
+For another example, the root of the English verb form destabilized is stabil-, 
+a form of stable that does not occur alone; the stem is de·stabil·ize, 
+which includes the derivational affixes de- and -ize, but not the inflectional past tense suffix -(e)d. 
+That is, a stem is that part of a word that inflectional affixes attach to.
+
+The exact use of the word 'stem' depends on the morphology of the language in question. 
+In Athabaskan linguistics, for example, a verb stem is a root that cannot appear on its own, and that carries the tone of the word. 
+Athabaskan verbs typically have two stems in this analysis, each preceded by prefixes.

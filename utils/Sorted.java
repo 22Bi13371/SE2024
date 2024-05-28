@@ -20,6 +20,7 @@ import java.lang.reflect.Field;
 @Documented
 @Retention(RUNTIME)
 @Target(FIELD)
+@NotAssessable
 public @interface Sorted {
   /** the sorting order */
   SortOrder order();
